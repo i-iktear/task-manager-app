@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Container, Form, Button, Row, Col } from "react-bootstrap";
+import { Container, Form, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuid } from "uuid";
 import { useParams } from "react-router-dom";
+import Button from "react-bootstrap/Button";
 
 // import Loader from "../components/Loader";
 // import Toaster from "../components/Toaster";
@@ -95,9 +96,11 @@ const AddMembers = ({ match }) => {
               ></Form.Control>
             </Form.Group>
             <br />
-            <Button type="submit" size="sm" variant="primary">
-              {id ? "Update Member" : "Add Member"}
-            </Button>
+            <div className="d-grid gap-2">
+              <Button type="submit" size="md" variant="primary">
+                {id ? "Edit Member" : "Add Member"}
+              </Button>
+            </div>
           </Form>
         </Col>
       </Row>

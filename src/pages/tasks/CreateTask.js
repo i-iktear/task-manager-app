@@ -45,6 +45,7 @@ const CreateTask = ({ match }) => {
           task.title = title;
           task.description = description;
           task.assignTo = assigne;
+          task.date = new Date();
         }
         return task;
       });
@@ -60,6 +61,7 @@ const CreateTask = ({ match }) => {
             title,
             description,
             assignTo: assigne,
+            date: new Date(),
           },
         ])
       );
@@ -74,7 +76,7 @@ const CreateTask = ({ match }) => {
       <Row className="justify-content-md-center">
         <Col xs={12} md={6}>
           <center>
-            <h1> {id ? "Edit Task" : "Create Task"} </h1>
+            <h1> {id ? "Update Task" : "Create Task"} </h1>
           </center>
           {/* {error && <Message variant="danger">{error}</Message>}
           {loading && <Loader />} */}
@@ -122,9 +124,11 @@ const CreateTask = ({ match }) => {
               </Form.Control>
             </Form.Group>
             <br />
-            <Button type="submit" size="sm" variant="primary">
-              {id ? "Update Task" : "Create Task"}
-            </Button>
+            <div className="d-grid gap-2">
+              <Button type="submit" size="sm" variant="primary">
+                {id ? "Update Task" : "Create Task"}
+              </Button>
+            </div>
           </Form>
         </Col>
       </Row>
