@@ -67,9 +67,11 @@ const LoginScreen = ({ location, history }) => {
               ></Form.Control>
             </Form.Group>
             <br />
-            <Button type="submit" size="sm" block variant="primary">
-              Log in
-            </Button>
+            <div className="d-grid gap-2">
+              <Button type="submit" size="sm" block variant="primary">
+                Log in
+              </Button>
+            </div>
           </Form>
         </Col>
       </Row>
