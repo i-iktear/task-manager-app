@@ -28,17 +28,22 @@ const MembersHomepage = ({ history }) => {
 
   return (
     <>
-      {isLoading ? <Loader /> : null}
       <center>
         <b>Members List</b> <i className="far fa-list-alt"></i>
       </center>
-      <LinkContainer to={`/add/member`}>
-        <Button className="ml-auto" variant="primary">
-          Add Member
-        </Button>
-      </LinkContainer>
-      <br />
-      <br />
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <LinkContainer to={`/add/member`}>
+            <Button className="ml-auto" variant="primary">
+              Add Member
+            </Button>
+          </LinkContainer>
+          <br />
+          <br />
+        </>
+      )}
 
       {membersList?.length > 0 && (
         <>
@@ -54,7 +59,9 @@ const MembersHomepage = ({ history }) => {
             <tbody>
               {membersList.map((user) => (
                 <tr key={user.id}>
-                  <td>{user.name}</td>
+                  <LinkContainer to={`/update/member/${user.id}`}>
+                    <td>{user.name}</td>
+                  </LinkContainer>
                   <td>
                     {" "}
                     <a href={`  mailto: ${user.email}`}>{user.email}</a>{" "}

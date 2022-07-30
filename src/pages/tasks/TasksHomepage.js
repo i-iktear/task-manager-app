@@ -28,17 +28,23 @@ const TasksHomepage = ({ history }) => {
 
   return (
     <>
-      {loading || deleteLoading ? <Loader /> : null}
       <center>
         <b>Tasks List</b> <i className="far fa-list-alt"></i>
       </center>
-      <LinkContainer to={`/add/task`}>
-        <Button className="ml-auto" variant="primary">
-          Create Task
-        </Button>
-      </LinkContainer>
-      <br />
-      <br />
+      {loading || deleteLoading ? (
+        <Loader />
+      ) : (
+        <div>
+          <LinkContainer to={`/add/task`}>
+            <Button className="ml-auto" variant="primary">
+              Create Task
+            </Button>
+          </LinkContainer>
+          <br />
+          <br />
+        </div>
+      )}
+
       {tasks?.length > 0 && (
         <>
           <Table striped hover resposnsive="true" className="table-sm">
@@ -46,6 +52,7 @@ const TasksHomepage = ({ history }) => {
               <tr>
                 <th>Title</th>
                 <th>Description</th>
+                <th>date</th>
                 <th>Assigned To</th>
                 <th></th>
                 <th></th>
@@ -56,10 +63,11 @@ const TasksHomepage = ({ history }) => {
                 <tr key={task?.id}>
                   <td>
                     <LinkContainer to={`/update/task/${task.id}`}>
-                      <div>{task?.title}</div>
+                      <div style={{ cursor: "pointer" }}>{task?.title}</div>
                     </LinkContainer>
                   </td>
                   <td>{task?.description}</td>
+                  <td>{task?.date}</td>
                   <td>{task?.assignTo}</td>
                   <td>
                     <LinkContainer to={`/update/task/${task.id}`}>
