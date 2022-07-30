@@ -1,6 +1,6 @@
 import React from "react";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
-import logo from "../assets/svgs/header-logo.svg";
+import logo from "../assets/icons/header-logo.svg";
 import { LinkContainer } from "react-router-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 // import { useNavigate } from "react-router-dom";
